@@ -1,0 +1,27 @@
+//- Created by bob on 26/05/2017.
+// index pagination
+mixin pagintation()
+    nav.pagination
+        if page.prev
+            a.pagination-up.pagination-text.fa.fa-angle-double-left(href=url_for(page.prev_link))
+        span.pagination-number 第 #{page.current} 页 / 共 #{page.total} 页
+        if page.next
+            a.pagination-down.pagination-text.fa.fa-angle-double-right(href=url_for(page.next_link))
+// post pagination
+mixin postnav()
+    .post-readmore
+        .post-readmore-left
+            if page.prev
+                a.down-a(href=url_for(page.prev.path))
+                    span.post-readmore-text 上一篇：
+                    i.post-readmore-icon.fa.fa-angle-left
+                    | &nbsp;#{page.prev.title} 
+                        
+        .post-readmore-center
+        .post-readmore-right
+            if page.next
+                a.down-a(href=url_for(page.next.path))
+                    span.post-readmore-text 下一篇：
+                    | &nbsp;#{page.next.title}&nbsp;
+                    i.post-readmore-icon.fa.fa-angle-right 
+                    

@@ -44,7 +44,8 @@ mixin posts()
                             section
                                 != item.excerpt
                 - })
-                include ../partials/pagination.pug
+                include pagination.pug
+                +pagintation()
             include ../partials/footer.pug
 
 
@@ -172,13 +173,6 @@ mixin post(item)
                         .post-tags
                             include tags.pug
                             +posttag(item)
-                        .post-readmore
-                            .post-readmore-left
-                                a.down-a(href='{{url}}')
-                                    span.post-readmore-text 上一篇：文字标题
-                                    i.post-readmore-icon.fa.fa-angle-left
-                            .post-readmore-center
-                            .post-readmore-right
-                                a.down-a(href='{{url}}')
-                                    span.post-readmore-text 下一篇：文字标题 
-                                    i.post-readmore-icon.fa.fa-angle-right
+                            include pagination.pug
+                            +postnav()
+        include ../partials/footer.pug                    
