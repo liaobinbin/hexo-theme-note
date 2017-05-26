@@ -1,0 +1,6 @@
+# config favicon
+favicon: images/favicon.png
+# copyright year
+year: 2017
+
+version: 1.0.0

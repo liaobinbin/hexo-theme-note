@@ -1,0 +1,23 @@
+//- Created by bob on 26/05/2017.
+
+doctype
+html(lang=config.language)
+    head
+        include header.pug
+    body
+        include page-loading.pug
+        #pjax-container
+            .mask
+            .mask2
+            //- navigation
+            include navigation.pug
+            //body
+            block mainbody
+            span.navbar-btn
+                span.navbar-btn-line1
+                span.navbar-btn-line2
+                span.navbar-btn-line3
+
+            span(class="backtop-btn waves-effect waves-button waves-float")
+                i(class="fa fa-angle-up")
+        include script.pug

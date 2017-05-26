@@ -1,0 +1,8 @@
+//- Created by bob on 26/05/2017.
+
+nav.pagination
+     if page.prev
+        a.pagination-up.pagination-text.fa.fa-angle-double-left(href=url_for(page.prev_link))
+     span.pagination-number 第 #{page.current} 页 / 共 #{page.total} 页
+     if page.next
+        a.pagination-down.pagination-text.fa.fa-angle-double-right(href=url_for(page.next_link))

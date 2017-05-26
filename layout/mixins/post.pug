@@ -1,0 +1,184 @@
+//- Created by bob on 26/05/2017.
+
+mixin postInfo(item)
+    .post-info
+        != full_date(item.date, 'll')
+        if item.from && (is_home() || is_post())
+            a.post-from(href=item.from target="_blank" title=item.from) 翻译 · 原文地址
+
+//- Index Page
+mixin posts()
+    .body-layout
+        .post-body-layout
+            if (theme.headerimg)
+                style(media='screen').
+                    .index-header {
+                        background: url(theme.headerimg);
+                        background-repeat: no-repeat;
+                        background-size: 100% 100%;
+                    }
+
+                    @media screen and (max-width: 390px) {
+                        .index-header {
+                            background: url(theme.headerimg);
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                    }
+                .index-header
+                    .index-header-wave
+            else
+                .index-header(style='background:url(images/ndex-header-default-bg.jpg);background-size:100% 100%;background-repeat:no-repeat;')
+                    .index-header-wave
+            .index-container
+                //foreach posts
+                - page.posts.each(function (item) {
+                    .index-post-layout
+                        article.index-post-abstract
+                            header
+                                h2
+                                    a(href= url_for(item.path))
+                                        != item.title
+                                time(datetime=date(item.date, 'DD MMMM YYYY'))
+                                    != date(item.date, 'DD MMMM YYYY')
+                            section
+                                != item.excerpt
+                - })
+                include ../partials/pagination.pug
+            include ../partials/footer.pug
+
+
+
+
+//- Archive Page
+mixin postList()
+    .archive
+        - var year = 0;
+        - var change = false;
+        - page.posts.each(function (item) {
+        - var itemYear = date(item.date, 'YYYY') - 0;
+        - change = year !== itemYear;
+        - year = change ? itemYear : year;
+        if change
+            h2.archive-year!= year
+        .post-item
+            +postInfo(item)
+            a.post-title-link(href= url_for(item.path))
+                != item.title
+        - })
+
+//- Post Page
+mixin post(item)
+    .body-layout
+        .post-body-layout
+            if theme.headerimg
+                style(media='screen').
+                    .post-header {
+                        width: 100%;
+                        height: 280px;
+                        background: url(theme.headerimg);
+                        background-repeat: no-repeat;
+                        background-size: 100% 100%;
+                        background-position: center;
+                        padding: 50px 0;
+                        text-align: center;
+                        margin-bottom: 100px;
+                        position: relative;
+                    }
+
+                    .post-header-wave {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        height: 56px;
+                        background: url(images/index-header-wave.png);
+                        background-size: 100% 100%;
+                    }
+
+                    .post-header-info {
+                        text-align: center;
+                        margin-top: 70px;
+                        width: 100%;
+                    }
+
+                    .post-header-info > h2 {
+                        font-size: 35px;
+                        color: #fff;
+                        font-weight: bold;
+                        margin-bottom: 15px;
+                    }
+
+                    .post-header-info > time {
+                        font-size: 9pt;
+                        color: #fff;
+                        font-weight: 400;
+                    }
+
+                    .post-body-layout {
+                        background: none;
+                    }
+
+                    @media screen and (max-width: 380px) {
+                        .post-header {
+                            width: 98%;
+                            height: auto;
+                            background: none;
+                            padding: 30px 0;
+                            margin-bottom: 30px;
+                            margin: 0 auto;
+                        }
+
+                        .post-header-info {
+                            margin-top: 35px;
+                        }
+
+                        .post-header-info > h2 {
+                            font-size: 26px;
+                            font-weight: 200;
+                            color: #666;
+                            margin-bottom: 15px;
+                        }
+
+                        .post-header-info > time {
+                            font-size: 9pt;
+                            color: #999;
+                            font-weight: 200;
+                        }
+
+                        .post-header-wave {
+                            position: absolute;
+                            bottom: 0;
+                            width: 0;
+                            height: 0;
+                            background: none;
+                        }
+                    }
+                .post-header
+                    .post-header-info
+                        h2 #{item.title}
+                        time(datetime=date(item.date, 'YYYY年MM月DD日'))
+                            i.fa.fa-calendar  发表于 #{date(item.date, 'YYYY年MM月DD日')}
+                    .post-header-wave
+            else
+                .post-header
+                    h2 #{item.title}
+                    time(datetime=date(item.date, 'YYYY年MM月DD日'))
+                        i.fa.fa-calendar  发表于 #{date(item.date, 'YYYY年MM月DD日')}
+            .index-container
+                .post-layout
+                    article.post-main
+                        section.post-main-section
+                            != item.content
+                        .post-tags
+                            include tags.pug
+                            +posttag(item)
+                        .post-readmore
+                            .post-readmore-left
+                                a.down-a(href='{{url}}')
+                                    span.post-readmore-text 上一篇：文字标题
+                                    i.post-readmore-icon.fa.fa-angle-left
+                            .post-readmore-center
+                            .post-readmore-right
+                                a.down-a(href='{{url}}')
+                                    span.post-readmore-text 下一篇：文字标题 
+                                    i.post-readmore-icon.fa.fa-angle-right

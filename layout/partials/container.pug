@@ -1,0 +1,17 @@
+//- Created by bob on 26/05/2017.
+// pajx-container
+#pjax-container
+    .mask
+    .mask2
+    //- navigation
+    include navigation.pug
+    //body
+    include ../mixins/post.pug
+    +posts()
+    span.navbar-btn
+        span.navbar-btn-line1
+        span.navbar-btn-line2
+        span.navbar-btn-line3
+
+    span(class="backtop-btn waves-effect waves-button waves-float")
+        i(class="fa fa-angle-up")
