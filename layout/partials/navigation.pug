@@ -13,10 +13,18 @@
         .clear-float
     .navbar-links
         ul
-            li
-                a(href='ceshi') zhuti
+            each value, key in theme.menu
+                li
+                    - var re = /^(http|https):\/\/*/gi;
+                    - var tar = re.test(value) ? "_blank" : "_self"
+                    - var act = !re.test(value) && "/"+page.current_url === value
+                    a(href=url_for(value) target=tar)
+                        != key.toUpperCase()
     .navbar-icon
-        a.fa.fa-github.navbar-github(href='')
-        a.fa.fa-weibo.navbar-weibo(href='')
-        a.fa.fa-envelope.navbar-mail(href='')
-        a.fa.fa-rss.navbar-rss(href='')
+        - var github = 'https://github.com/' + theme.github
+        - var weibo = 'http://weibo.com/' + theme.weibo
+        - var mail = 'mailto:' + theme.email
+        a.fa.fa-github.navbar-github(href=github)
+        a.fa.fa-weibo.navbar-weibo(href=weibo)
+        a.fa.fa-envelope.navbar-mail(href=mail)
+        a.fa.fa-rss.navbar-rss(href=theme.rss)
