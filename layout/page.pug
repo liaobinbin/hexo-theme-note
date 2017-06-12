@@ -1,0 +1,18 @@
+extends partials/layout.pug
+
+block mainbody
+  if page.type == "tags"
+    .body-layout
+      .post-body-layout
+        .post-header
+          h2 #{page.title}
+        .index-container
+          .post-layout
+            article.post-main
+              section.tags-page-section
+                != tagcloud({min_font: 12, max_font: 30, amount: 40})
+      include partials/footer.pug
+  else
+    include mixins/post.pug
+    +post(page)
+

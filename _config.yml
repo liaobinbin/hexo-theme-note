@@ -7,9 +7,9 @@ menu:
 # header image
 headerimg: https://cdn.weic96.cn/website/a/15/4545620ec1ce9ee9147a91ab69c06.jpg
 # logo
-logo: images/logo.jpg
+logo: /images/logo.jpg
 # config favicon
-favicon: images/favicon.png
+favicon: /images/favicon.png
 # scoial username
 github: liaobinbin
 weibo: mycxs

@@ -1,6 +1,8 @@
 /**
  * Created by bob on 26/05/2017.
  */
+$(document).ready(function(){
+    
 
 var windowW = ($(window).width());
 var windowH = ($(window).height());
@@ -37,3 +39,4 @@ $(document).on('pjax:complete', function() {
         hljs.lineNumbersBlock(block);
     });
 });
+})
