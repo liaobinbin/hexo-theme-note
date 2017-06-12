@@ -12,5 +12,5 @@ mixin tagspage(item)
         .post-layout
           article.post-main
             section.tags-page-section
-              != tagcloud({min_font: item.min-font, max_font: item.max-font, amount: item.amount})
+              != tagcloud({min_font: item.min_font, max_font: item.max_font, amount: item.amount})
     include ../partials/footer.pug

@@ -1,7 +1,7 @@
 extends partials/layout.pug
 
 block mainbody
-  if page.type == "tags"
+  if page.type === "tags"
     include mixins/tags.pug
     +tagspage(page)
   else
