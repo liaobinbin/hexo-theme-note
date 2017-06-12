@@ -31,11 +31,28 @@
 		width: 100%;
 		height: auto;
 	}
+	.post-readmore{
+		display: none;
+	}
+	.post-readmore-min{
+		display: block;
+	}
+	.comments-info-box>input{
+		width: 322px;
+		display: block;
+		margin-bottom: 10px;
+	}
+	.comments-text>textarea{
+		width: 500px;
+	}
 }
 @media screen and (max-width:768px) {
 	/* 主页面 */
 	.index-header{
 		height: 320px;
+	}
+	.index-header-wave{
+		display: none;
 	}
 	.index-post-abstract{
 		width: 90%;
@@ -70,10 +87,71 @@
 	.post-readmore-text{
 		display: inline;
 	}
+	.comments-info-box>input{
+		width: 322px;
+		display: block;
+		margin-bottom: 10px;
+	}
+	.comments-text>textarea{
+		width: 500px;
+	}
 	/* 友情链接页面 */
 	.links-page-section .links-btn,
 	.links-page-section .links2-btn{
 		width: 90%;
+	}
+	/*Typecho归档页*/
+	.archive-categories>ul{
+		margin: 0;
+		padding: 0;
+		padding-top: 0;
+		padding-left: 0;
+		border-left: none;
+		clear: both;
+		width: 100%;
+	}
+	.archive-categories h3{
+		font-weight: 200;
+		font-size: 15pt;
+		padding: 10px 0;
+		padding-right: 10px;
+		color: #777;
+		clear: both;
+		width: 100%;
+		text-align: left;
+	}
+	.archive-categories>ul>li{
+		position: relative;
+		line-height: 38px;
+		font-size: 11.5pt;
+	    color: #555;
+	    text-align: justify;
+	}
+	.archive-categories>ul>li>a{
+		font-size: 11.5pt;
+	    color: #555;
+	    text-align: justify;
+	}
+	.archive-categories>ul>li:before{
+		content: " ";
+		width: 0;
+		height: 0;
+		border: none;
+		background: none;
+		border-radius: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+@media screen and (max-width:571px) {
+	.comments-info-box>input{
+		width: 322px;
+		display: block;
+		margin-bottom: 10px;
+	}
+	.comments-text>textarea{
+		width: 322px;
 	}
 }
 @media screen and (max-width:416px) {
@@ -96,9 +174,6 @@
 	/* 主页面 */
 	.index-header{
 		height: 240px;
-	}
-	.index-header-wave{
-		display: none;
 	}
 	.index-post-abstract{
 		width: 90%;
@@ -157,5 +232,13 @@
 	}
 	.post-header>h2{
 		font-size: 30px;
+	}
+	.comments-info-box>input{
+		width: 322px;
+		display: block;
+		margin-bottom: 10px;
+	}
+	.comments-text>textarea{
+		width: 322px;
 	}
 }

@@ -1,0 +1,28 @@
+extends partials/layout.pug
+
+block mainbody
+  .post-body-layout
+    .post-header
+      h2 Archive
+    .index-container
+      .post-layout
+        article.post-main
+          section.archive-page.section
+            - var year = 0
+            - page.posts.each(function (item){
+            - item.year = date(item.date, 'YYYY')
+              if year != item.year
+                - year = item.year
+                .archive-categories
+                  h3.archive-categories-title #{year}
+                  ul
+                    - page.posts.each(function (item){
+                    - item.year = date(item.date, 'YYYY')
+                    if year != item.year
+                      - return false
+                    li #{item.title}
+                    - })
+                  div(style='clear:both;')
+            -})
+
+  include partials/footer.pug
