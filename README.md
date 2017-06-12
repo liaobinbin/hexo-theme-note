@@ -5,6 +5,13 @@
 cd 博客目录/themes
 git clone https://github.com/liaobinbin/hexo-theme-note.git note
 ```
+
+## 安装依赖插件
+```bash
+npm install hexo-rander-pug --save 
+# 在博客主目录下执行
+```
+
 主题已经完成了归档页面也标签云页面
 
 技术强的自己修改，技术不好的请支持原作者。
