@@ -1,5 +1,16 @@
 //- Created by bob on 26/05/2017.
 mixin posttag(item)
-    item.tags.each(function(){
-        p none;
-    })
+  item.tags.each(function(){
+      p none;
+  })
+mixin tagspage(item)
+    .body-layout
+    .post-body-layout
+      .post-header
+        h2 #{item.title}
+      .index-container
+        .post-layout
+          article.post-main
+            section.tags-page-section
+              != tagcloud({min_font: 12, max_font: 30, amount: 40})
+    include ../partials/footer.pug
