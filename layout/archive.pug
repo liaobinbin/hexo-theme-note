@@ -21,7 +21,8 @@ block mainbody
                       - item.year = date(item.date, 'YYYY')
                       if year != item.year
                         - return false
-                      li #{item.title}
+                      li
+                        a.down-a(href=url_for(item.path)) #{item.title}
                       - })
                     div(style='clear:both;')
               -})
