@@ -825,9 +825,8 @@ ul,ol {
 .post-main-section img{
 	box-shadow: 0 2px 20px 5px rgba(0, 0, 0, 0.2);
 	max-width: 100%;
-	width: 100%;
     display: block;
-	margin: 30px 0;
+	margin: 30px auto;
 }
 .post-main-section h1{
 	font-size: 25pt;
