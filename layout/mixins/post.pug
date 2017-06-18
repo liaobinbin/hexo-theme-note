@@ -170,9 +170,8 @@ mixin post(item)
                     article.post-main
                         section.post-main-section
                             != item.content
-                        .post-tags
-                            include tags.pug
-                            +posttag(item)
-                            include pagination.pug
-                            +postnav()
-        include ../partials/footer.pug                    
+                        include tags.pug
+                        +posttag(item)
+                        include pagination.pug
+                        +postnav()
+        include ../partials/footer.pug
