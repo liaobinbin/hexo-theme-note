@@ -875,12 +875,15 @@ ul,ol {
 	color: #e8a6a6;
 	margin-right: 8px;
 }
-.post-tags{
+.tag-list{
 	padding: 10px 0;
 	font-size: 11pt;
 	margin-top: 50px;
 }
-.post-tags>a{
+.tag-list>li{
+    display:inline-block;
+}
+.tag-list>li>a{
 	font-size: 8.5pt;
 	color: #999;
 	padding: 4px 8px;
@@ -888,7 +891,7 @@ ul,ol {
 	border-radius: 4px;
 	margin-right: 4px;
 }
-.post-tags>a:hover{
+.tag-list>li>a:hover{
 	color: #666;
 	background: none;
 }

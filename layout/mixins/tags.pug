@@ -1,9 +1,5 @@
 //- Created by bob on 26/05/2017.
-mixin posttag(item)
-  .post-tags
-    - item.tags.each(function (tag){
-    a(href=url_for(tag.path)) #{tag.name}
-    - })
+
 mixin tagspage(item)
   .body-layout
     .post-body-layout
