@@ -173,4 +173,5 @@ mixin post(item)
                         != list_tags(item.tags, {show_count: false})
                         include pagination.pug
                         +postnav()
+                        include ../partials/comments.pug
         include ../partials/footer.pug

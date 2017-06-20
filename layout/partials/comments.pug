@@ -1,0 +1,28 @@
+.post-comments
+  span.post-comments-btn 评论
+  .post-comments-script
+    #disqus_thread
+    script(type='text/javascript').
+          $(document).ready(function() {
+          $('.post-comments-btn').on('click', function(){
+          var disqus_shortname = 'bobslogs';	// 修改值为你的网站名;
+          $.ajax({
+          type: "GET",
+          url: "http://" + disqus_shortname + ".disqus.com/embed.js",
+          dataType: "script",
+          cache: true
+          });
+          //$(this).fadeOut();
+          });
+          });
+          var reset = function (newIdentifier, newUrl, newTitle, newLanguage) {
+          DISQUS.reset({
+          reload: true,
+          config: function () {
+          this.page.identifier = newIdentifier;
+          this.page.url = newUrl;
+          this.page.title = newTitle;
+          this.language = newLanguage;
+          }
+          });
+          };
